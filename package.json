@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/codex-scribe/shakespeare-page#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "inquirer": "^8.2.5",
-    "tailwindcss": "^3.2.4"
+    "mongoose": "^6.0.13"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.7"
   }
 }

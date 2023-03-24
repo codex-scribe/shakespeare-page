@@ -15,14 +15,30 @@
     <title>Shakespeare</title>
 </head>
 <body>
-  <header>The Plays of William Shakespeare</header>
+  <header>The Sonnets of William Shakespeare</header>
+    <div id="contentgoeshere">
+      <form id="formData">
+        <p>Should it be about the imperative to procreate?</p>
+        <input type="radio" name="procreate" id="procreatetrue" value="true">
+        <label for="procreatetrue">yes</label><br>
+        <input type="radio" name="procreate" id='procreatefalse' value="false">
+        <label for="procreatefalse">no</label><br>
 
+        <p>Should it be dependent on imagery?</p>
+        <input type="radio" name="useOfImagery" id="imagerytrue" value="true">
+        <label for="imagerytrue">yes</label><br>
+        <input type="radio" name="useOfImagery" id='imageryfalse' value="false">
+        <label for="imageryfalse">no</label><br>
+        <input type="submit" value="Submit" id="submitBtn">
+
+      </form>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script
   src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
   integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
   crossorigin="anonymous"></script>
  </script>
-    <script src="./assets/js/shakespearescript.js"></script>
+    <script src="/index.js"></script>
 </body>
 </html>
