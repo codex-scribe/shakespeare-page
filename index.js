@@ -173,7 +173,10 @@ const sonnetInfo = [
 
 ]
 
-
+const stringToBoolean = (input) => {
+    if (input = 'true') return true
+    else return false
+}
 
 const performSearch = (event) => {
     event.preventDefault();
@@ -181,7 +184,7 @@ const performSearch = (event) => {
     let procreationVar;
     for (const radioButton of procreateOption) {
         if (radioButton.checked) {
-            procreationVar = radioButton.value;
+            procreationVar = stringToBoolean(radioButton.value);
             break;
         }
     }
@@ -190,13 +193,13 @@ const performSearch = (event) => {
     let imageryVar;
     for (const radioButton of imageryOption) {
         if (radioButton.checked) {
-            imageryVar = radioButton.value;
+            imageryVar = stringToBoolean(radioButton.value);
             break;
         }
     }
 
     let userQuery = {
-        urgeToProcreate: procreationVar,
+        imperativeToProcreate: procreationVar,
         useOfImagery: imageryVar
     }
     let searchParams = {};
@@ -209,26 +212,29 @@ const performSearch = (event) => {
         }
     }
 
-    // console.log(searchParams)
+    console.log(searchParams)
     sonnetSearch(searchParams)
 }
 
 const sonnetSearch = (params) => {
-    console.log('hey',params)
+    // console.log('hey',params)
     let result = sonnetInfo.filter((item) => {
-        console.log(item)
-        for (const property in item) {
-            if (params[property] === undefined) {
-                break
-            } else if (item[property] !== params[property]) {
-                return false    
-            } else {
-                return true
+        // console.log(item)
+        let status = true;
+        for (const property in params) {
+            console.log('item[property] = ',item[property])
+            console.log('params[property] = ', params[property])
+            console.log(item[property] != params[property])
+            if (item[property] !== params[property]) {
+                status = false
             }
-        }
-    })
+    }
+    return status
+})
     console.log(result)
 }
+
+sonnetSearch({imperativeToProcreate: 'true'})
 
 // const printSonnet = () => {
 //     return sonnet
