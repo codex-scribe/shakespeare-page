@@ -19,7 +19,7 @@ const submitBtn = document.getElementById('submitBtn');
     }
 */
 
-const sonnetinfo = [
+const sonnetInfo = [
     {   //no =  1 index = 0
         imperativeToProcreate: true, //boolean
         imageryDependent: true, //boolean
@@ -195,16 +195,39 @@ const performSearch = (event) => {
         }
     }
 
-    let searchParams = {
+    let userQuery = {
         urgeToProcreate: procreationVar,
         useOfImagery: imageryVar
     }
+    let searchParams = {};
 
-    console.log(searchParams)
+    for (const property in userQuery) {
+        if (userQuery[property] === undefined) {
+            continue
+        } else {
+            searchParams[property] = userQuery[property]
+        }
+    }
+
+    // console.log(searchParams)
+    sonnetSearch(searchParams)
 }
 
 const sonnetSearch = (params) => {
-
+    console.log('hey',params)
+    let result = sonnetInfo.filter((item) => {
+        console.log(item)
+        for (const property in item) {
+            if (params[property] === undefined) {
+                break
+            } else if (item[property] !== params[property]) {
+                return false    
+            } else {
+                return true
+            }
+        }
+    })
+    console.log(result)
 }
 
 // const printSonnet = () => {
