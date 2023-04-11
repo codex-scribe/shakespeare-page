@@ -11,6 +11,7 @@
     "url": "git+https://github.com/codex-scribe/shakespeare-page.git"
   },
   "keywords": [],
+  "type": "module",
   "author": "",
   "license": "ISC",
   "bugs": {

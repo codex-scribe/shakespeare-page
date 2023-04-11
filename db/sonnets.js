@@ -211,4 +211,4 @@ const sonnets = [
   },
 ]
 
-module.exports = sonnets
+export {sonnets}

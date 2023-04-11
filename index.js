@@ -1,5 +1,8 @@
 const content = document.getElementById('contentgoeshere');
 const submitBtn = document.getElementById('submitBtn');
+const sonnetDisplayArea = document.getElementById('sonnetDisplay')
+// const sonnets = require('./db/sonnets')
+import { sonnets } from "./db/sonnets.js";
 
 /* template:
     {   //no =  index = 
@@ -21,8 +24,9 @@ const submitBtn = document.getElementById('submitBtn');
 
 const sonnetInfo = [
     {   //no =  1 index = 0
+        num: 1,
         imperativeToProcreate: true, //boolean
-        imageryDependent: true, //boolean
+        useOfImagery: true, //boolean
         imagery: ['flowers', 'face', 'eyes', 'fire'], //array of strings
         subjectGenderExplicit: false, //boolean
         genderOfSubject: null, //male, female, or null
@@ -36,8 +40,9 @@ const sonnetInfo = [
         metaphors: ['fire', 'ripening']
     },
     {   //no = 2 index = 1
+        num: 2,
         imperativeToProcreate: true, //boolean
-        imageryDependent: true, //boolean
+        useOfImagery: true, //boolean
         imagery: ['face', 'brow', 'field', 'clothing', 'eyes'], //array of strings
         subjectGenderExplicit: false, //boolean
         genderOfSubject: null, //male, female, or null
@@ -51,8 +56,9 @@ const sonnetInfo = [
         metaphors: ['warfare']
     },
 {   //no = 3 index = 2
+        num: 3,
         imperativeToProcreate: true, //boolean
-        imageryDependent: true, //boolean
+        useOfImagery: true, //boolean
         imagery: ['mirror', 'face', 'field'], //array of strings
         subjectGenderExplicit: true, //boolean
         genderOfSubject: 'male', //male, female, or null
@@ -66,8 +72,9 @@ const sonnetInfo = [
         metaphors: ['agriculture']
     },
     {   //no = 4 index = 3
+        num: 4,
         imperativeToProcreate: true, //boolean
-        imageryDependent: false, //boolean
+        useOfImagery: false, //boolean
         imagery: [], //array of strings
         subjectGenderExplicit: false, //boolean
         genderOfSubject: null, //male, female, or null
@@ -81,8 +88,9 @@ const sonnetInfo = [
         metaphors: ['squandering', 'miserliness']
     },
     {   //no = 5 index = 4
+        num: 5,
         imperativeToProcreate: true, //boolean
-        imageryDependent: true, //boolean
+        useOfImagery: true, //boolean
         imagery: ['leaves', 'frost', 'trees', 'snow', 'bareness', 'perfume', 'flowers'], //array of strings
         subjectGenderExplicit: false, //boolean
         genderOfSubject: null, //male, female, or null
@@ -96,8 +104,9 @@ const sonnetInfo = [
         metahpors: ['distillation']
     },
     {   //no = 6 index = 5
+        num: 6,
         imperativeToProcreate: true, //boolean
-        imageryDependent: true, //boolean
+        useOfImagery: true, //boolean
         imagery: ['perfume'], //array of strings
         subjectGenderExplicit: false, //boolean
         genderOfSubject: null, //male, female, or null
@@ -111,8 +120,9 @@ const sonnetInfo = [
         metaphors: ['loan', 'perfume', ]
     },
     {   //no = 7 index = 6
+        num: 7,
         imperativeToProcreate: true, //boolean
-        imageryDependent: true, //boolean
+        useOfImagery: true, //boolean
         imagery: ['sun'], //array of strings
         subjectGenderExplicit: false, //boolean
         genderOfSubject: null, //male, female, or null
@@ -126,8 +136,9 @@ const sonnetInfo = [
         metaphors: ['sunset']
     },
     {   //no = 8 index = 7
+        num: 8,
         imperativeToProcreate: true, //boolean
-        imageryDependent: true, //boolean
+        useOfImagery: true, //boolean
         imagery: ['musical instrument'], //array of strings
         subjectGenderExplicit: false, //boolean
         genderOfSubject: null, //male, female, or null
@@ -141,8 +152,9 @@ const sonnetInfo = [
         metaphors: ['musical harmony'] //array of strings
     },
     {   //no = 9 index = 8
+        num: 9,
         imperativeToProcreate: true, //boolean
-        imageryDependent: true, //boolean
+        useOfImagery: true, //boolean
         imagery: ['tears', 'eyes'], //array of strings
         subjectGenderExplicit: true, //boolean
         genderOfSubject: 'male', //male, female, or null
@@ -156,8 +168,9 @@ const sonnetInfo = [
         metaphors: ['widowhood', 'miserliness', 'self-destruction'] //array of strings
     },
         {   //no = 10 index = 9
+        num: 10,
         imperativeToProcreate: true, //boolean
-        imageryDependent: false, //boolean
+        useOfImagery: false, //boolean
         imagery: [], //array of strings
         subjectGenderExplicit: false, //boolean
         genderOfSubject: null, //male, female, or null
@@ -222,9 +235,10 @@ const sonnetSearch = (params) => {
         // console.log(item)
         let status = true;
         for (const property in params) {
+            console.log(property)
             console.log('item[property] = ',item[property])
             console.log('params[property] = ', params[property])
-            console.log(item[property] != params[property])
+            console.log(item[property] !== params[property])
             if (item[property] !== params[property]) {
                 status = false
             }
@@ -232,9 +246,21 @@ const sonnetSearch = (params) => {
     return status
 })
     console.log(result)
+    displaySonnets(result)
 }
 
-sonnetSearch({imperativeToProcreate: 'true'})
+const displaySonnets = (result) => {
+    sonnetDisplayArea.innerHTML = ''
+    result.forEach((item) => {
+        let text = sonnets[item.num-1].title
+        let newSonnet = document.createElement('p')
+        newSonnet.textContent = text
+        sonnetDisplayArea.appendChild(newSonnet)
+
+    })
+}
+
+// sonnetSearch({imperativeToProcreate: 'true'})
 
 // const printSonnet = () => {
 //     return sonnet
