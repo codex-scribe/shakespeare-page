@@ -6,6 +6,7 @@ import { sonnets } from "./db/sonnets.js";
 
 /* template:
     {   //no =  index = 
+        num: , //integer
         imperativeToProcreate: , //boolean
         imageryDependent: , //boolean
         imagery: [], //array of strings
@@ -24,7 +25,7 @@ import { sonnets } from "./db/sonnets.js";
 
 const sonnetInfo = [
     {   //no =  1 index = 0
-        num: 1,
+        num: 1, //integer
         imperativeToProcreate: true, //boolean
         useOfImagery: true, //boolean
         imagery: ['flowers', 'face', 'eyes', 'fire'], //array of strings
@@ -225,7 +226,7 @@ const performSearch = (event) => {
         }
     }
 
-    console.log(searchParams)
+    // console.log(searchParams)
     sonnetSearch(searchParams)
 }
 
@@ -235,26 +236,30 @@ const sonnetSearch = (params) => {
         // console.log(item)
         let status = true;
         for (const property in params) {
-            console.log(property)
-            console.log('item[property] = ',item[property])
-            console.log('params[property] = ', params[property])
-            console.log(item[property] !== params[property])
+            // console.log(property)
+            // console.log('item[property] = ',item[property])
+            // console.log('params[property] = ', params[property])
+            // console.log(item[property] !== params[property])
             if (item[property] !== params[property]) {
                 status = false
             }
     }
     return status
 })
-    console.log(result)
+    // console.log(result)
     displaySonnets(result)
 }
 
 const displaySonnets = (result) => {
     sonnetDisplayArea.innerHTML = ''
     result.forEach((item) => {
-        let text = sonnets[item.num-1].title
-        let newSonnet = document.createElement('p')
-        newSonnet.textContent = text
+        console.log(item)
+        let text = sonnets[item.num-1].lines.join('\n')
+        let newSonnet = document.createElement('div')
+        newSonnet.setAttribute("id", 'sonnetReturns')
+        let titleLine = `Sonnet ${item.num}\n`
+        text = titleLine.concat(text,'\n\n')
+        newSonnet.innerHTML = text
         sonnetDisplayArea.appendChild(newSonnet)
 
     })

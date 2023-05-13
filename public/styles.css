@@ -512,3 +512,7 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+
+#sonnetReturns {
+  white-space: pre-line;
+}
