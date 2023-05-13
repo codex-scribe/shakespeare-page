@@ -28,7 +28,7 @@ const sonnetInfo = [
         num: 1, //integer
         imperativeToProcreate: true, //boolean
         useOfImagery: true, //boolean
-        imagery: ['flowers', 'face', 'eyes', 'fire'], //array of strings
+        imagery: ['floral', 'face', 'eyes', 'fire'], //array of strings
         subjectGenderExplicit: false, //boolean
         genderOfSubject: null, //male, female, or null
         ravagesOfTime: true,//boolean
@@ -92,7 +92,7 @@ const sonnetInfo = [
         num: 5,
         imperativeToProcreate: true, //boolean
         useOfImagery: true, //boolean
-        imagery: ['leaves', 'frost', 'trees', 'snow', 'bareness', 'perfume', 'flowers'], //array of strings
+        imagery: ['leaves', 'frost', 'trees', 'snow', 'bareness', 'perfume', 'floral'], //array of strings
         subjectGenderExplicit: false, //boolean
         genderOfSubject: null, //male, female, or null
         ravagesOfTime: true,//boolean
