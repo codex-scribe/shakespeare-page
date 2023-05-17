@@ -1,7 +1,7 @@
-const content = document.getElementById('contentgoeshere');
-const submitBtn = document.getElementById('submitBtn');
 const sonnetDisplayArea = document.getElementById('sonnetDisplay')
-// const sonnets = require('./db/sonnets')
+const imageryToggleOn = document.getElementById('imagerytrue')
+const imageryToggleOff = document.getElementById('imageryfalse')
+const formElem = document.querySelector('form');
 import { sonnets } from "./db/sonnets.js";
 
 /* template:
@@ -187,13 +187,6 @@ const sonnetInfo = [
 
 ]
 
-const stringToBoolean = (input) => {
-    if (input = 'true') return true
-    else return false
-}
-
-const imageryToggleOn = document.getElementById('imagerytrue')
-const imageryToggleOff = document.getElementById('imageryfalse')
 const imageryOptions = document.getElementsByClassName('imageryinput')
 
 const imageryOptionsEnable = () => {
@@ -214,59 +207,20 @@ const imageryOptionsDisable = () => {
 
 
 imageryToggleOn.addEventListener('click', imageryOptionsEnable)
-console.log(imageryOptions)
 
 imageryToggleOff.addEventListener('click', imageryOptionsDisable)
 
-const performSearch = (event) => {
-    event.preventDefault();
-    // console.log(event)
-    const procreateOption = document.querySelectorAll('input[name="procreate"]');
-    let procreationVar;
-    for (const radioButton of procreateOption) {
-        if (radioButton.checked) {
-            procreationVar = stringToBoolean(radioButton.value);
-            break;
-        }
+const performSearch = (e) => {
+    e.preventDefault();
+    new FormData(formElem)
+}
+
+formElem.onformdata = (e) => {
+    console.log('formdata fired!')
+    let data = e.formData;
+    for (const pair of data.entries()) {
+        console.log(pair[0],pair[1])
     }
-
-    const imageryOption = document.querySelectorAll('input[name="useOfImagery"]');
-    let imageryVar;
-    for (const radioButton of imageryOption) {
-        if (radioButton.checked) {
-            imageryVar = stringToBoolean(radioButton.value);
-            break;
-        }
-    }
-
-    let imageryTypes;
-    if (imageryVar === true) {
-        imageryTypes = []
-        for (let i = 0; i<imageryOptions.length-1; i++) {
-            console.log(imageryOptions[i])
-        }
-
-    }
-    
-
-
-
-    let userQuery = {
-        imperativeToProcreate: procreationVar,
-        useOfImagery: imageryVar
-    }
-    let searchParams = {};
-
-    for (const property in userQuery) {
-        if (userQuery[property] === undefined) {
-            continue
-        } else {
-            searchParams[property] = userQuery[property]
-        }
-    }
-
-    console.log(searchParams)
-    // sonnetSearch(searchParams)
 }
 
 const sonnetSearch = (params) => {
@@ -304,11 +258,6 @@ const displaySonnets = (result) => {
     })
 }
 
-// sonnetSearch({imperativeToProcreate: 'true'})
-
-// const printSonnet = () => {
-//     return sonnet
-// }
-document.querySelector('#formData').addEventListener('submit', performSearch)
+formElem.addEventListener('submit', performSearch)
 // content.textContent = printSonnet();
 

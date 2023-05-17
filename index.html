@@ -17,7 +17,7 @@
 <body>
   <header>The Sonnets of William Shakespeare</header>
     <div id="contentgoeshere">
-      <form id="formData">
+      <form>
         <p>Should it be about the imperative to procreate?</p>
         <input type="radio" name="procreate" id="procreatetrue" value="true">
         <label for="procreatetrue">yes</label><br>
@@ -32,52 +32,52 @@
 
 
         <p>Types of imagery:</p>
-        <input type="checkbox" id="floral" name="floralImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="floral" name="floralImagery" value="floral" disabled>
         <label for="floral">floral</label>
 
-        <input type="checkbox" id="face" name="facialImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="face" name="facialImagery" value="face" disabled>
         <label for="face">facial</label>
 
-        <input type="checkbox" id="eyes" name="eyeImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="eyes" name="eyeImagery" value="eyes" disabled>
         <label for="eyes">eyes</label>
 
-        <input type="checkbox" id="fire" name="fireImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="fire" name="fireImagery" value="fire" disabled>
         <label for="fire">fire</label>
 
-        <input type="checkbox" id="field" name="fieldImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="field" name="fieldImagery" value="true" disabled>
         <label for="field">field</label>
 
-        <input type="checkbox" id="brow" name="browImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="brow" name="browImagery" value="true" disabled>
         <label for="brow">brow</label>
 
-        <input type="checkbox" id="clothing" name="clothingImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="clothing" name="clothingImagery" value="true" disabled>
         <label for="clothing">clothing</label>
 
-        <input type="checkbox" id="mirror" name="mirrorImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="mirror" name="mirrorImagery" value="true" disabled>
         <label for="mirror">mirror</label>
 
-        <input type="checkbox" id="leaves" name="leavesImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="leaves" name="leavesImagery" value="true" disabled>
         <label for="leaves">leaves</label>
 
-        <input type="checkbox" id="frost" name="frostImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="frost" name="frostImagery" value="true" disabled>
         <label for="frost">frost</label>
 
-        <input type="checkbox" id="trees" name="treesImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="trees" name="treesImagery" value="true" disabled>
         <label for="trees">trees</label>
 
-        <input type="checkbox" id="snow" name="snowImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="snow" name="snowImagery" value="true" disabled>
         <label for="snow">snow</label>
 
-        <input type="checkbox" id="bareness" name="barenessImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="bareness" name="barenessImagery" value="true" disabled>
         <label for="bareness">bareness</label>
 
-        <input type="checkbox" id="sun" name="sunImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="sun" name="sunImagery" value="true" disabled>
         <label for="sun">sun</label>
 
-        <input type="checkbox" id="musicInstrument" name="musicInstrumentImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="musicInstrument" name="musicInstrumentImagery" value="true" disabled>
         <label for="musicInstrument">musical instrument</label>
 
-        <input type="checkbox" id="tears" name="tearsImagery" value="true" disabled>
+        <input class='imageryinput' type="checkbox" id="tears" name="tearsImagery" value="true" disabled>
         <label for="tears">tears</label>
 
         <p>Gender of subject explicit?</p>
@@ -96,6 +96,7 @@
 
         <br>
         <input type="submit" value="Submit" id="submitBtn">
+        <input type="reset">
       </form>
       <div id="sonnetDisplay"></div>
     </div>
@@ -105,6 +106,6 @@
   integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
   crossorigin="anonymous"></script>
  </script>
-    <script src="/index.js" type="module"></script>
+    <script src="/index2.js" type="module"></script>
 </body>
 </html>
